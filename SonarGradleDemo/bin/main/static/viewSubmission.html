@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Payment Page</title>
+</head>
+<body>
+<table style="margin: 0 auto;">
+<tr><td><h1>   Submission</h1></td><td><h1>Entries</h1></td></tr>
+<tr>
+<td>	<a href="/">Home</a> </td>
+<td>	<a href="/viewHistory">View Purchase History</a> </td>
+</tr>
+<tr>
+<td>
+</td></tr>
+</table>
+<form action="/viewSubmission" method="POST" >
+		<table>
+			<tr>
+				<td>Customer Name</td>
+				<td>:</td>
+				<td><input type="text" name="custName" /></td>
+			</tr>
+			<tr>
+				<td>Select Item</td>
+				<td>:</td>
+				<td><select name="items">
+						<option value="Product1">Product1</option>
+						<option value="Product2">Product2</option>
+						<option value="Product3">Product3</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Enter Price</td>
+				<td>:</td>
+				<td><input type="number" name="price" min="1" max="100" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Pay" /></td>
+				<td></td>
+			</tr>
+		</table>
+</form>
+&nbsp;
+<table border="1">
+<tr>
+<th>Invoice Id</th><th>CustName</th><th>Items</th><th>Price</th>
+</tr>
+<tr th:each="cust:${custSubmit}">
+	<td th:text="${cust.id}">...</td>
+	<td th:text="${cust.custName}">...</td>
+	<td th:text="${cust.items}">...</td>
+	<td th:text="${cust.price}">...</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Payment History</title>
+</head>
+<body>
+<table style="margin: 0 auto;">
+<tr><td><h1>   Purchase</h1></td><td><h1>History</h1></td></tr>
+<tr>
+<td>	<a href="/">Home</a> </td>
+<td>	<a href="/viewHistory">View Purchase History</a> </td>
+</tr>
+<tr>
+<td>
+</td></tr>
+</table>
+<table border="1">
+<tr>
+<th>Invoice Id</th><th>CustName</th><th>Items</th><th>Price</th>
+</tr>
+<tr th:each="cust:${custPaymt}">
+	<td th:text="${cust.id}">...</td>
+	<td th:text="${cust.custName}">...</td>
+	<td th:text="${cust.items}">...</td>
+	<td th:text="${cust.price}">...</td>
+</tr>
+</table>
+</body>
+</html>
